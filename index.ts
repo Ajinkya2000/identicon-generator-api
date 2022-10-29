@@ -1,12 +1,14 @@
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import path from "path";
+import cors from "cors";
 
 import getIdenticon from "./utils/getIdenticon";
 
 dotenv.config();
 
 const app: Express = express();
+app.use(cors());
 app.use(express.json());
 
 const PORT = process.env.PORT || 5000;

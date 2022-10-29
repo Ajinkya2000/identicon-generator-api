@@ -24,9 +24,15 @@ app.use(express_1.default.json());
 const PORT = process.env.PORT || 5000;
 app.get("/identicon/:term", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const term = req.params.term;
-    const exitCode = yield (0, getIdenticon_1.default)(term);
-    const parentDir = path_1.default.dirname(__dirname);
-    res.sendFile(parentDir + `/identicon-generator/${term}.png`);
+    try {
+        const exitCode = yield (0, getIdenticon_1.default)(term);
+        const parentDir = path_1.default.dirname(__dirname);
+        res.sendFile(parentDir + `/identicon-generator/${term}.png`);
+    }
+    catch (err) {
+        console.log(err);
+        res.status(500).json({ 'error': 'Something went wrong!' });
+    }
 }));
 app.listen(PORT, () => {
     console.log(`⚡️[server]: Server is running at http://localhost:${PORT}`);

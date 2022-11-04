@@ -9,7 +9,7 @@
 	"scripts": {
 		"build": "tsc",
 		"start": "node dist/index.js",
-		"postdeploy": "sudo apt-get install elixir -y && cd identicon-generator/",
+		"postdeploy": "apt-get install elixir -y && cd identicon-generator/ && mix deps.get",
 		"dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\""
 	},
 	"keywords": [],

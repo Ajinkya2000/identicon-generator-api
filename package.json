@@ -8,8 +8,8 @@
 	},
 	"scripts": {
 		"build": "tsc",
-		"start": "npm run predeploy && elixir -v && node dist/index.js",
-		"predeploy": "sudo apt-get install elixir -y",
+		"start": "node dist/index.js",
+		"postdeploy": "sudo apt-get install elixir -y && cd identicon-generator/",
 		"dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\""
 	},
 	"keywords": [],

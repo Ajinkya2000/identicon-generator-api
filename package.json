@@ -9,7 +9,7 @@
 	"scripts": {
 		"build": "tsc",
 		"start": "npm run predeploy && elixir -v && node dist/index.js",
-		"predeploy": "apt-get install elixir -y",
+		"predeploy": "sudo apt-get install elixir -y",
 		"dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\""
 	},
 	"keywords": [],

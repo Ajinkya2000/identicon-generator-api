@@ -9,6 +9,7 @@ export default async function getIdenticon(term: string) {
 		});
 
 		elixirApp.stdout.on("data", (data) => console.log(data.toString()));
+		elixirApp.stderr.on("data", (data) => console.log(data.toString()));
 		elixirApp.stdin.write(`Identicon.main("${term}")\n`);
 		elixirApp.stdin.write(`System.halt\n`);
 

@@ -4,7 +4,7 @@ export default async function getIdenticon(term: string) {
 	return new Promise((resolve, reject) => {
 		const elixirApp = spawn("iex", ["-S", "mix"], {
 			shell: true,
-			cwd: "identicon-generator",
+			// cwd: "identicon-generator",
 			timeout: 2000,
 		});
 

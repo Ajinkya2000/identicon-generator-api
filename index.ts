@@ -19,7 +19,7 @@ app.get("/identicon/:term", async (req: Request, res: Response) => {
 	try {
 		const exitCode = await getIdenticon(term);
 		const parentDir = path.dirname(__dirname);
-		res.sendFile(parentDir + `/identicon-generator/${term}.png`);
+		res.sendFile(parentDir + `/${term}.png`);
 	} catch(err) {
 		console.log(err);
 		res.status(500).json({'error': 'Something went wrong!'})
